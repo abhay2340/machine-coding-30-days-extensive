@@ -1,23 +1,18 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./styles.css";
 
 const dropdownOptions = [
   { label: "first", value: 1 },
   { label: "seconds", value: 2 },
-  { label: "thirdsssa", value: 3 },  { label: "first", value: 1 },
-  { label: "secondss", value: 2 },
-  { label: "thirds", value: 3 },  { label: "first", value: 1 },
-  { label: "seconds", value: 2 },
-  { label: "thirdsss", value: 3 },
+  { label: "third", value: 3 },
 ];
 
-export default function Autocomplete() {
+export default function BasicAutocomplete() {
   const [value, setValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
   const [showDropdownList, setShowDropdownList] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState<number>(-1);
 
-  const optionRefs = useRef<(HTMLParagraphElement | null)[]>([]);
 
   // Debounce input
   useEffect(() => {
@@ -39,13 +34,7 @@ export default function Autocomplete() {
  
 
   // Scroll highlighted item into view
-  useEffect(() => {
-    if (highlightedIndex >= 0) {
-      optionRefs.current[highlightedIndex]?.scrollIntoView({
-        block: "nearest",
-      });
-    }
-  }, [highlightedIndex]);
+ 
 
   const handleSelectOption = (option: string) => {
     setValue(option);
@@ -53,36 +42,7 @@ export default function Autocomplete() {
     setHighlightedIndex(-1);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!dropdownList.length) return;
 
-    switch (e.key) {
-      case "ArrowDown":
-        e.preventDefault();
-        setHighlightedIndex((prev) =>
-          prev < dropdownList.length - 1 ? prev + 1 : 0
-        );
-        break;
-
-      case "ArrowUp":
-        e.preventDefault();
-        setHighlightedIndex((prev) =>
-          prev > 0 ? prev - 1 : dropdownList.length - 1
-        );
-        break;
-
-      case "Enter":
-        e.preventDefault();
-        if (highlightedIndex >= 0) {
-          handleSelectOption(dropdownList[highlightedIndex].label);
-        }
-        break;
-
-      case "Escape":
-        setShowDropdownList(false);
-        break;
-    }
-  };
 
   return (
     <div
@@ -98,7 +58,6 @@ export default function Autocomplete() {
           setShowDropdownList(true);
         }}
         onFocus={() => setShowDropdownList(true)}
-        onKeyDown={handleKeyDown}
         style={{ width: "100%", padding: "6px" }}
       />
 
@@ -119,7 +78,6 @@ export default function Autocomplete() {
           {dropdownList.map((option, index) => (
             <p
               key={option.value}
-              ref={(el) => (optionRefs.current[index] = el)}
               onMouseDown={() => handleSelectOption(option.label)}
               style={{
                 margin: 0,
