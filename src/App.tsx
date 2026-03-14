@@ -2,7 +2,8 @@
 // import BasicAutocomplete from "./Questions/Autocomplete/BasicAutocmplete"
 // import MediumAutocomplete from "./Questions/Autocomplete/MediumAutocomplete"
 // import HardAutocomplete from "./Questions/Autocomplete/HardAutocomplete"
-import {ModalSimple} from './Questions/Modal/ModalSimple'
+// import {ModalSimple} from './Questions/Modal/ModalSimple'
+import { InfiniteScrollLoadMoreButton } from './Questions/InfiniteScroll/InfiniteScrollLoadMoreButton'
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
   <h1>Hard</h1>
   <HardAutocomplete/> */}
   {/* <ToDoApp/> */}
-  <ModalSimple/>
+  {/* <ModalSimple/> */}
+  <InfiniteScrollLoadMoreButton/>
     </div>
   )
 }
