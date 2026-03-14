@@ -1,19 +1,21 @@
 
-import BasicAutocomplete from "./Questions/Autocomplete/BasicAutocmplete"
-import MediumAutocomplete from "./Questions/Autocomplete/MediumAutocomplete"
-import HardAutocomplete from "./Questions/Autocomplete/HardAutocomplete"
+// import BasicAutocomplete from "./Questions/Autocomplete/BasicAutocmplete"
+// import MediumAutocomplete from "./Questions/Autocomplete/MediumAutocomplete"
+// import HardAutocomplete from "./Questions/Autocomplete/HardAutocomplete"
+import {ModalSimple} from './Questions/Modal/ModalSimple'
 
 function App() {
   return (
-    <>
-  <h1>Basic</h1>
+    <div>
+  {/* <h1>Basic</h1>
   <BasicAutocomplete/>
   <h1>Medium</h1>
   <MediumAutocomplete/>
   <h1>Hard</h1>
-  <HardAutocomplete/>
+  <HardAutocomplete/> */}
   {/* <ToDoApp/> */}
-    </>
+  <ModalSimple/>
+    </div>
   )
 }
 
