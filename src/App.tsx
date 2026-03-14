@@ -3,7 +3,8 @@
 // import MediumAutocomplete from "./Questions/Autocomplete/MediumAutocomplete"
 // import HardAutocomplete from "./Questions/Autocomplete/HardAutocomplete"
 // import {ModalSimple} from './Questions/Modal/ModalSimple'
-import { InfiniteScrollLoadMoreButton } from './Questions/InfiniteScroll/InfiniteScrollLoadMoreButton'
+import { InfiniteScrollAuto } from './Questions/InfiniteScroll/InfiniteScrollAuto'
+// import { InfiniteScrollLoadMoreButton } from './Questions/InfiniteScroll/InfiniteScrollLoadMoreButton'
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
   <HardAutocomplete/> */}
   {/* <ToDoApp/> */}
   {/* <ModalSimple/> */}
-  <InfiniteScrollLoadMoreButton/>
+  {/* <InfiniteScrollLoadMoreButton/> */}
+  <InfiniteScrollAuto/>
     </div>
   )
 }
